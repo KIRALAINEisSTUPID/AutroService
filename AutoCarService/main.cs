@@ -10,3 +10,18 @@ Tanirovka, => AvtomobilTuri, Qaysi oynalarni tanirovka qilishiga qarab, oldi oyn
 Polirovka, => avtomobil turi, homashyo turiga qarab, avtomobil detaliga qarab narx tayinlansin => va narxini hisoblab bersin
 MatorniYuvish xizmati, => avtomobil turiga qarab => narxini hisoblab bersin
 */
+
+using lab;
+class App
+{
+    public static void Main(string[] args)
+    {
+        Service gosusluga = new Service("Nexia");
+        gosusluga.Tanirovka();
+        gosusluga.MatorniYuvish();
+        gosusluga.BalonDamlash();
+        gosusluga.Polirovka();
+        gosusluga.MoyAlmashtirish();
+        gosusluga.getSum();
+    }
+}

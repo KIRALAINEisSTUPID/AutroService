@@ -19,14 +19,15 @@ namespace lab // namespace opened to call
 {
     class Service //class created
     {
-
+        //===================variable===================
+        public int SUM;
         //===================properties===================
         string avtomobilTuri { get; set; }
         string MoyNomi { get; set; }
         int balonlarSoni { get; set; }
         int bosim { get; set; }
-        int TanOldiOyna { get; set; }
-        int TanOrqaOyna { get; set; }
+        bool TanOldiOyna { get; set; }
+        bool TanOrqaOyna { get; set; }
         bool labavoy { get; set; }
         bool krugovoy { get; set; }
         string avtoPart { get; set; }
@@ -46,14 +47,14 @@ namespace lab // namespace opened to call
             this.MoyNomi = MoyNomi;
             this.balonlarSoni = balonlarSoni;
         }
-        public Service(string avtomobilTuri,string MoyNomi, int balonlarSoni,int bosism)
+        public Service(string avtomobilTuri,string MoyNomi, int balonlarSoni,int bosim)
         {
             this.avtomobilTuri = avtomobilTuri;
             this.MoyNomi = MoyNomi;
             this.balonlarSoni = balonlarSoni;
             this.bosim = bosim;
         }
-        public Service(string avtomobilTuri,string MoyNomi, int balonlarSoni,int bosim,int TanOldiOyna)
+        public Service(string avtomobilTuri,string MoyNomi, int balonlarSoni,int bosim, bool TanOldiOyna)
         {
             this.avtomobilTuri = avtomobilTuri;
             this.MoyNomi = MoyNomi;
@@ -62,23 +63,166 @@ namespace lab // namespace opened to call
             this.TanOldiOyna = TanOldiOyna;
         }
 
-        public Service(string avtomobilTuri,string MoyNomi,int balonlarSoni,int bosim,int TanOldiOyna,int TanOrqaOyna)
+        public Service(string avtomobilTuri,string MoyNomi,int balonlarSoni,int bosim, bool TanOldiOyna, bool TanOrqaOyna)
         {
             this.avtomobilTuri = avtomobilTuri;
             this.MoyNomi = MoyNomi;
             this.balonlarSoni = balonlarSoni;
             this.bosim = bosim;
-            this.TanOldiOyna =
+            this.TanOldiOyna = TanOldiOyna;
             this.TanOrqaOyna = TanOrqaOyna;
         
         }
-        public Service
+        public Service(string avtomobilTuri,string MoyNomi, int balonlarSoni,int bosim, bool TanOldiOyna, bool TanOrqaOyna,bool labavoy)
+        {
+            this.avtomobilTuri = avtomobilTuri;
+            this.MoyNomi = MoyNomi;
+            this.balonlarSoni = balonlarSoni;
+            this.bosim = bosim;
+            this.TanOldiOyna = TanOldiOyna;
+            this.TanOrqaOyna = TanOrqaOyna;
+            this.labavoy = labavoy;
+        }
+        public Service(string avtomobilTuri, string MoyNomi, int balonlarSoni, int bosim, bool TanOldiOyna, bool TanOrqaOyna, bool labavoy,bool krugovoy)
+        {
+            this.avtomobilTuri = avtomobilTuri;
+            this.MoyNomi = MoyNomi;
+            this.balonlarSoni = balonlarSoni;
+            this.bosim = bosim;
+            this.TanOldiOyna = TanOldiOyna;
+            this.TanOrqaOyna = TanOrqaOyna;
+            this.labavoy = labavoy;
+            this.krugovoy = krugovoy;
+        }
+        public Service(string avtomobilTuri, string MoyNomi, int balonlarSoni, int bosim, bool TanOldiOyna, bool TanOrqaOyna, bool labavoy, bool krugovoy, string avtoPart)
+        {
+            this.avtomobilTuri = avtomobilTuri;
+            this.MoyNomi = MoyNomi;
+            this.balonlarSoni = balonlarSoni;
+            this.bosim = bosim;
+            this.TanOldiOyna = TanOldiOyna;
+            this.TanOrqaOyna = TanOrqaOyna;
+            this.labavoy = labavoy;
+            this.krugovoy = krugovoy;
+            this.avtoPart = avtoPart;
+        }
+
 
         //===================methods===================
-        public int MoyAlmashtirish() { return 0; }
-        public int BalonDamlash() { return 0; }
-        public int Tanirovka() { return 0; }
-        public int Polirovka() { return 0; }
-        public int MatorniYuvish() { return 0; }
+        public int MoyAlmashtirish()
+        { 
+            if (avtomobilTuri=="Nexia" && MoyNomi=="80")
+            {
+                return SUM += 900;
+            }
+            else if (avtomobilTuri == "Nexia" && MoyNomi == "90") 
+            {
+
+                return SUM += 950;
+            }
+            else if (avtomobilTuri == "Matiz" && MoyNomi == "80")
+            {
+
+                return SUM += 600;
+            }
+            else if (avtomobilTuri == "Matiz" && MoyNomi == "90")
+            {
+
+                return SUM += 650;
+            }
+            else
+            {
+                return SUM;
+            }
+        }
+        public int BalonDamlash()
+        {
+            if (bosim < 40)
+            {
+                return SUM += bosim * balonlarSoni * 3;
+            }
+            else
+            {
+                return SUM;
+
+            }
+        }
+
+
+        public int Tanirovka() 
+        {
+            if (krugovoy == false)
+            {
+                if (TanOldiOyna==true && TanOrqaOyna==true && labavoy==true)
+                {
+                    krugovoy = true;                
+                }
+                if (TanOldiOyna == true) 
+                { 
+                    return SUM += 100;
+                }
+                if (labavoy == true) 
+                { 
+                    
+                    return SUM += 300; 
+                
+                }
+                if (TanOrqaOyna == true)
+                { 
+                    return SUM += 150;
+                }
+                else
+                {
+                    return SUM;
+                }
+            }
+            else
+            {
+                return SUM += 550;
+            }
+        
+        }
+        public int Polirovka() 
+        { 
+            if (avtomobilTuri == "Nexia" && avtoPart=="eshik") 
+            {
+                return SUM += 600;
+            }
+            else if (avtomobilTuri == "Nexia" && avtoPart == "bagaj")
+            {
+                return SUM += 900;
+            }
+            else if (avtomobilTuri == "Matiz" && avtoPart == "bagaj")
+            {
+                return SUM += 850;
+            }
+            else if (avtomobilTuri == "Matiz" && avtoPart == "eshik")
+            {
+                return SUM += 450;
+            }
+            else
+            {
+                return SUM += 1000;
+            }
+
+        }
+        public int MatorniYuvish() 
+        { 
+            if (avtomobilTuri == "Nexia")
+            {
+                return SUM += 700;
+            }
+            else if (avtomobilTuri == "Matiz")
+            {
+                return SUM += 500;
+            }
+            return SUM;
+        
+        }
+        public void getSum()
+        {
+            Console.WriteLine($"Javi {SUM} tolashingiz kk");
+
+        }
     }
 }
